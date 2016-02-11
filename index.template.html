@@ -11,23 +11,13 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Response', 'Per Person'],
-          
-            ['Once a year or less',     633],
-          
-            ['Once a month or less',     205],
-          
-            ['Never',     166],
-          
-            ['A few times per week',     4],
-          
-            ['Every day',     3],
-          
-            ['A few times per month',     29],
-          
+          <% values.each do |key, value| %>
+            ['<%= key %>',     <%= value %>],
+          <% end %>
         ]);
 
         var options = {
-          title: 'Airplane Ettiquite'
+          title: '<%= page_title %>'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
