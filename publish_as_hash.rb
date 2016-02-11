@@ -2,7 +2,7 @@ require 'csv'
 require 'erb'
 
 # read
-the_html = File.read("index.template.html")
+the_html = File.read("index-as-hash.template.html")
 # replace
 
 page_title = "Airplane Ettiquite"
@@ -10,7 +10,7 @@ page_title = "Airplane Ettiquite"
 answers = []
 
 CSV.foreach("data.csv", headers: true) do |row|
-  answer = row.to_hash["How often do you travel by plane?"]
+  answer = row.to_hash#["How often do you travel by plane?"]
   if answer.nil?
     answer = "Did Not Answer"
   end

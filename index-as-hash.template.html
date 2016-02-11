@@ -11,10 +11,9 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Response', 'Per Person'],
-          ['Share',     <%= shared_count %>],
-          ['Dibs',      <%= first_count %>],
-          ['MiddleRules',  <%= middle_count %>],
-          ['MiddleSucks', <%= window_aisle_count %>]
+          <% values.each do |key, value| %>
+            ['<%= key %>',     <%= value %>],
+          <% end %>
         ]);
 
         var options = {
